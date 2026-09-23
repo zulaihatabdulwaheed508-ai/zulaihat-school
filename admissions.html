@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Aurelia International College | Admissions</title>
+
+  <link rel="stylesheet" href="schoolr.css">
+
+  <style>
+    :root {
+      --navy: #101d3b;
+      --navy-dark: #081126;
+      --gold: #d6ad5b;
+      --purple: #7567e8;
+      --blue: #3d82f6;
+      --green: #27ae75;
+      --cream: #f7f5ef;
+      --white: #ffffff;
+      --text: #303642;
+      --line: #e6e6e6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f7fb;
+      color: var(--text);
+    }
+
+    /* ================= NAVIGATION ================= */
+
+    .site-header {
+      background: var(--navy);
+      min-height: 78px;
+      padding: 14px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: white;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      font-size: 18px;
+      white-space: nowrap;
+    }
+
+    .logo svg {
+      flex-shrink: 0;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 7px;
+      font-size: 14px;
+      transition: 0.3s ease;
+    }
+
+    .site-nav a:hover {
+      background: rgba(255,255,255,0.12);
+      color: #f2c96d;
+    }
+
+    .site-nav .active {
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: bold;
+    }
+
+    /* ================= HERO ================= */
+
+    .admission-hero {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          120deg,
+          rgba(8,17,38,0.96),
+          rgba(16,29,59,0.88),
+          rgba(76,65,150,0.72)
+        ),
+        url("images/school-campus.jpg");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+      color: white;
+      padding: 70px 0;
+    }
+
+    .hero-small {
+      color: #f2c96d;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .hero-content h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1;
+      margin-bottom: 22px;
+    }
+
+    .hero-content h1 span {
+      color: #f2c96d;
+    }
+
+    .hero-content p {
+      max-width: 650px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #e7e9ef;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero-btn.primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .hero-btn.secondary {
+      border: 1px solid rgba(255,255,255,0.6);
+      color: white;
+    }
+
+    .hero-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* ================= QUICK TABS ================= */
+
+    .admission-tabs {
+      width: 90%;
+      max-width: 1150px;
+      margin: -35px auto 55px;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    .tab {
+      background: white;
+      padding: 25px 18px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(16,29,59,0.10);
+      transition: 0.3s;
+    }
+
+    .tab:hover {
+      transform: translateY(-7px);
+    }
+
+    .tab-icon {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .purple {
+      background: var(--purple);
+    }
+
+    .blue {
+      background: var(--blue);
+    }
+
+    .green {
+      background: var(--green);
+    }
+
+    .gold {
+      background: var(--gold);
+    }
+
+    .tab h3 {
+      color: var(--navy);
+      font-family: Georgia, serif;
+      margin-bottom: 6px;
+    }
+
+    .tab p {
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* ================= MAIN CONTENT ================= */
+
+    .page-wrap {
+      width: 90%;
+      max-width: 1150px;
+      margin: auto;
+      padding-bottom: 80px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-heading span {
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, serif;
+      color: var(--navy);
+      font-size: 35px;
+      margin-top: 8px;
+    }
+
+    /* ================= STATUS ================= */
+
+    .status-banner {
+      background: white;
+      border-radius: 14px;
+      padding: 25px 30px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 55px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border-left: 5px solid var(--green);
+    }
+
+    .status-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(39,174,117,0.12);
+      flex-shrink: 0;
+    }
+
+    .status-label {
+      color: var(--green);
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .status-detail {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* ================= GRADES ================= */
+
+    .grades-open {
+      background: white;
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      margin-bottom: 55px;
+    }
+
+    .grades-open h2 {
+      color: var(--navy);
+      font-family: Georgia, serif;
+      margin-bottom: 22px;
+      font-size: 25px;
+    }
+
+    .grade-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    .grade-table th {
+      background: var(--navy);
+      color: white;
+      text-align: left;
+      padding: 15px;
+    }
+
+    .grade-table td {
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .grade-table tr:nth-child(even) td {
+      background: #f8f8fc;
+    }
+
+    .status-open {
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    /* ================= APPLICATION PROCESS ================= */
+
+    .steps-section {
+      margin-bottom: 60px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .step {
+      background: white;
+      padding: 28px 22px;
+      border-radius: 13px;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--purple);
+    }
+
+    .step:nth-child(2) {
+      border-color: var(--blue);
+    }
+
+    .step:nth-child(3) {
+      border-color: var(--green);
+    }
+
+    .step:nth-child(4) {
+      border-color: var(--gold);
+    }
+
+    .step-number {
+      font-size: 35px;
+      font-family: Georgia, serif;
+      font-weight: bold;
+      color: #e2e2e8;
+      margin-bottom: 10px;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 13px;
+      color: #777;
+      line-height: 1.7;
+    }
+
+    /* ================= REQUIREMENTS ================= */
+
+    .requirements {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+
+    .requirement-box {
+      background: white;
+      padding: 32px;
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    .requirement-box h2 {
+      font-family: Georgia, serif;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .requirement-box ul {
+      list-style: none;
+    }
+
+    .requirement-box li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+
+    .requirement-box li::before {
+      content: "✓";
+      color: var(--green);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy),
+          #293b70
+        );
+      padding: 65px 30px;
+      border-radius: 18px;
+      color: white;
+    }
+
+    .cta h2 {
+      font-family: Georgia, serif;
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #dfe3ef;
+      margin-bottom: 28px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 7px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .cta a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: var(--navy-dark);
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+      .site-header {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .site-nav {
+        justify-content: center;
+      }
+
+      .admission-tabs,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .admission-tabs,
+      .steps,
+      .requirements {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .grades-open {
+        padding: 20px;
+        overflow-x: auto;
+      }
+
+      .status-banner {
+        align-items: flex-start;
+      }
+
+      .site-nav a {
+        padding: 8px 9px;
+        font-size: 12px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="site-header">
+
+  <div class="logo">
+
+
+<svg width="45" height="45" viewBox="0 0 45 45">
+  <circle cx="22.5" cy="22.5" r="21" fill="#d6ad5b"/>
+  <circle cx="22.5" cy="22.5" r="16" fill="#101d3b"/>
+  <text
+    x="22.5"
+    y="29"
+    font-size="19"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-family="Georgia">
+    A
+  </text>
+</svg>
+
+<span class="logo-text">
+  Aurelia International College
+</span>
+
+
+  </div>
+
+  <nav class="site-nav">
+    <a href="school.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="academics.html">Academics</a>
+    <a href="campus.html">Campus</a>
+    <a href="news.html">News</a>
+    <a href="contact.html">Contact</a>
+    <a href="Admissions.html" class="active">Admissions</a>
+  </nav>
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="admission-hero">
+
+  <div class="hero-content">
+
+
+<div class="hero-small">
+  Aurelia International College
+</div>
+
+<h1>
+  Begin Your <span>Aurelia</span> Journey
+</h1>
+
+<p>
+  At Aurelia International College, we believe every student
+  deserves an education that inspires excellence, develops
+  character and prepares them for a remarkable future.
+</p>
+
+<div class="hero-buttons">
+
+  <a href="application.html" class="hero-btn primary">
+    Apply Now →
+  </a>
+
+  <a href="#requirements" class="hero-btn secondary">
+    View Requirements
+  </a>
+
+</div>
+
+
+  </div>
+
+</section>
+
+<!-- ================= COLORFUL TABS ================= -->
+
+<section class="admission-tabs">
+
+  <div class="tab">
+    <div class="tab-icon purple">01</div>
+    <h3>Apply</h3>
+    <p>Complete your online application.</p>
+  </div>
+
+  <div class="tab">
+    <div class="tab-icon blue">02</div>
+    <h3>Review</h3>
+    <p>Our admissions team reviews your application.</p>
+  </div>
+
+  <div class="tab">
+    <div class="tab-icon green">03</div>
+    <h3>Interview</h3>
+    <p>Meet with our admissions team.</p>
+  </div>
+
+  <div class="tab">
+    <div class="tab-icon gold">04</div>
+    <h3>Enroll</h3>
+    <p>Receive your offer and begin your journey.</p>
+  </div>
+
+</section>
+
+<main class="page-wrap">
+
+  <!-- ================= SECTION TITLE ================= -->
+
+  <div class="section-heading">
+
+
+<span>Admissions 2026/2027</span>
+
+<h2>Your Future Starts Here</h2>
+
+
+  </div>
+
+  <!-- ================= STATUS ================= -->
+
+  <div class="status-banner">
+
+
+<div class="status-dot"></div>
+
+<div>
+
+  <div class="status-label">
+    Admissions Currently Open
+  </div>
+
+  <div class="status-detail">
+    Applications are currently being accepted for
+    Kindergarten through Grade 12.
+  </div>
+
+</div>
+
+
+  </div>
+
+  <!-- ================= GRADES ================= -->
+
+  <section class="grades-open">
+
+
+<h2>Available Grade Levels</h2>
+
+<table class="grade-table">
+
+  <thead>
+    <tr>
+      <th>Grade Level</th>
+      <th>Admission Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr>
+      <td>Kindergarten</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 1</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 2</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 3</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 4</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 5</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 6</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 7</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 8</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 9</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 10</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 11</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+    <tr>
+      <td>Grade 12</td>
+      <td class="status-open">● Open</td>
+    </tr>
+
+  </tbody>
+
+</table>
+
+
+  </section>
+
+  <!-- ================= APPLICATION PROCESS ================= -->
+
+  <section class="steps-section">
+
+
+<div class="section-heading">
+
+  <span>Simple & Seamless</span>
+
+  <h2>How to Apply</h2>
+
+</div>
+
+<div class="steps">
+
+  <div class="step">
+
+    <div class="step-number">01</div>
+
+    <h3>Submit Application</h3>
+
+    <p>
+      Complete our online application form with
+      accurate student and parent information.
+    </p>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">02</div>
+
+    <h3>Provide Documents</h3>
+
+    <p>
+      Upload previous academic records and all
+      required supporting documents.
+    </p>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">03</div>
+
+    <h3>Interview</h3>
+
+    <p>
+      Our admissions team will arrange an interview
+      or campus visit with your family.
+    </p>
+
+  </div>
+
+
+  <div class="step">
+
+    <div class="step-number">04</div>
+
+    <h3>Receive Your Offer</h3>
+
+    <p>
+      Successful applicants receive their admission
+      decision and enrollment information.
+    </p>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+  <!-- ================= REQUIREMENTS ================= -->
+
+  <section id="requirements">
+
+
+<div class="section-heading">
+
+  <span>Prepare Your Application</span>
+
+  <h2>Admission Requirements</h2>
+
+</div>
+
+
+<div class="requirements">
+
+  <div class="requirement-box">
+
+    <h2>Required Documents</h2>
+
+    <ul>
+
+      <li>Completed application form</li>
+      <li>Recent passport photograph</li>
+      <li>Previous school records</li>
+      <li>Birth certificate</li>
+      <li>Parent or guardian information</li>
+
+    </ul>
+
+  </div>
+
+
+  <div class="requirement-box">
+
+    <h2>What We Look For</h2>
+
+    <ul>
+
+      <li>Academic readiness</li>
+      <li>Curiosity and willingness to learn</li>
+      <li>Positive character</li>
+      <li>Respect and responsibility</li>
+      <li>Commitment to personal growth</li>
+
+    </ul>
+
+  </div>
+
+</div>
+
+
+  </section>
+
+  <!-- ================= CTA ================= -->
+
+  <section class="cta">
+
+<h2>Ready to Join Aurelia?</h2>
+
+<p>
+  Take the first step toward an exceptional educational journey.
+</p>
+
+<a href="application.html">
+  Start Your Application →
+</a>
+
+
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <p>
+    © 2026 Aurelia International College.
+    Excellence • Character • Future
+  </p>
+
+</footer>
+
+</body>
+</html>

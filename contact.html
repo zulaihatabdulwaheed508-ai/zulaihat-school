@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | Aurelia International College</title>
+
+<style>
+
+    :root {
+        --navy: #101d3b;
+        --navy-dark: #081126;
+        --gold: #d6ad5b;
+        --purple: #7567e8;
+        --blue: #3d82f6;
+        --green: #27ae75;
+        --white: #ffffff;
+        --bg: #f6f7fb;
+        --text: #303642;
+        --muted: #727987;
+        --line: #e5e7ec;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+    }
+
+
+    /* ================= NAVIGATION ================= */
+
+    .site-header {
+        min-height: 78px;
+        padding: 14px 6%;
+
+        background: var(--navy);
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 30px;
+
+        box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+
+        position: relative;
+        z-index: 10;
+    }
+
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        color: white;
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-weight: bold;
+        font-size: 18px;
+
+        white-space: nowrap;
+    }
+
+
+    .logo svg {
+        flex-shrink: 0;
+    }
+
+
+    .site-nav {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+    }
+
+
+    .site-nav a {
+        color: white;
+        text-decoration: none;
+
+        padding: 10px 14px;
+
+        border-radius: 7px;
+
+        font-size: 14px;
+
+        transition: 0.3s ease;
+    }
+
+
+    .site-nav a:hover {
+        background: rgba(255,255,255,0.12);
+        color: var(--gold);
+    }
+
+
+    .site-nav .active {
+        background: var(--gold);
+        color: var(--navy);
+        font-weight: bold;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .contact-hero {
+        min-height: 400px;
+
+        display: flex;
+        align-items: center;
+
+        background:
+            linear-gradient(
+                120deg,
+                rgba(8,17,38,0.97),
+                rgba(16,29,59,0.88),
+                rgba(76,65,150,0.72)
+            );
+
+        color: white;
+    }
+
+
+    .hero-content {
+        width: 90%;
+        max-width: 1150px;
+
+        margin: auto;
+
+        padding: 70px 0;
+    }
+
+
+    .hero-label {
+        color: var(--gold);
+
+        text-transform: uppercase;
+
+        letter-spacing: 3px;
+
+        font-size: 12px;
+
+        font-weight: bold;
+
+        margin-bottom: 15px;
+    }
+
+
+    .hero-content h1 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: clamp(45px, 7vw, 75px);
+
+        line-height: 1;
+
+        margin-bottom: 20px;
+    }
+
+
+    .hero-content h1 span {
+        color: var(--gold);
+    }
+
+
+    .hero-content p {
+        max-width: 650px;
+
+        color: #e0e4ed;
+
+        line-height: 1.8;
+
+        font-size: 16px;
+    }
+
+
+    /* ================= CONTACT CARDS ================= */
+
+    .contact-cards {
+        width: 90%;
+        max-width: 1150px;
+
+        margin: -45px auto 70px;
+
+        position: relative;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .contact-card {
+        background: white;
+
+        padding: 30px 22px;
+
+        text-align: center;
+
+        border-radius: 14px;
+
+        box-shadow: 0 12px 35px rgba(16,29,59,0.10);
+
+        transition: 0.3s ease;
+
+        border-top: 4px solid var(--purple);
+    }
+
+
+    .contact-card:nth-child(2) {
+        border-color: var(--blue);
+    }
+
+
+    .contact-card:nth-child(3) {
+        border-color: var(--green);
+    }
+
+
+    .contact-card:hover {
+        transform: translateY(-7px);
+    }
+
+
+    .contact-icon {
+        width: 52px;
+        height: 52px;
+
+        margin: 0 auto 15px;
+
+        border-radius: 50%;
+
+        display: grid;
+        place-items: center;
+
+        color: white;
+
+        font-size: 18px;
+
+        font-weight: bold;
+    }
+
+
+    .icon-purple {
+        background: var(--purple);
+    }
+
+
+    .icon-blue {
+        background: var(--blue);
+    }
+
+
+    .icon-green {
+        background: var(--green);
+    }
+
+
+    .contact-card h3 {
+        color: var(--navy);
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        margin-bottom: 8px;
+    }
+
+
+    .contact-card p {
+        color: var(--muted);
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .contact-card a {
+        color: var(--purple);
+
+        text-decoration: none;
+
+        font-weight: bold;
+    }
+
+
+    /* ================= MAIN CONTACT ================= */
+
+    .contact-section {
+        width: 90%;
+        max-width: 1150px;
+
+        margin: 0 auto 80px;
+
+        display: grid;
+
+        grid-template-columns: 0.9fr 1.1fr;
+
+        gap: 30px;
+
+        align-items: stretch;
+    }
+
+
+    /* ================= INFORMATION ================= */
+
+    .contact-info {
+        background: var(--navy);
+
+        color: white;
+
+        padding: 40px;
+
+        border-radius: 16px;
+
+        position: relative;
+
+        overflow: hidden;
+    }
+
+
+    .contact-info::after {
+        content: "";
+
+        width: 180px;
+        height: 180px;
+
+        border: 1px solid rgba(214,173,91,0.3);
+
+        border-radius: 50%;
+
+        position: absolute;
+
+        right: -80px;
+        bottom: -80px;
+    }
+
+
+    .section-label {
+        color: var(--gold);
+
+        text-transform: uppercase;
+
+        letter-spacing: 2px;
+
+        font-size: 11px;
+
+        font-weight: bold;
+    }
+
+
+    .contact-info h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 35px;
+
+        margin: 10px 0 18px;
+    }
+
+
+    .contact-info > p {
+        color: #d8dce6;
+
+        line-height: 1.8;
+
+        font-size: 14px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .info-item {
+        display: flex;
+
+        gap: 15px;
+
+        margin-bottom: 25px;
+
+        position: relative;
+
+        z-index: 1;
+    }
+
+
+    .info-icon {
+        width: 40px;
+        height: 40px;
+
+        flex-shrink: 0;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 8px;
+
+        background: rgba(214,173,91,0.15);
+
+        color: var(--gold);
+
+        font-weight: bold;
+    }
+
+
+    .info-item h4 {
+        margin-bottom: 5px;
+
+        color: white;
+    }
+
+
+    .info-item p,
+    .info-item a {
+        color: #c8cdd8;
+
+        text-decoration: none;
+
+        font-size: 13px;
+
+        line-height: 1.6;
+    }
+
+
+    /* ================= FORM ================= */
+
+    .contact-form {
+        background: white;
+
+        padding: 40px;
+
+        border-radius: 16px;
+
+        box-shadow: 0 8px 30px rgba(16,29,59,0.06);
+    }
+
+
+    .contact-form h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        color: var(--navy);
+
+        font-size: 32px;
+
+        margin-bottom: 8px;
+    }
+
+
+    .form-intro {
+        color: var(--muted);
+
+        font-size: 14px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .form-row {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 18px;
+    }
+
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+
+    .form-group label {
+        display: block;
+
+        color: var(--navy);
+
+        font-size: 13px;
+
+        font-weight: bold;
+
+        margin-bottom: 7px;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+
+        width: 100%;
+
+        border: 1px solid var(--line);
+
+        background: #fafbfc;
+
+        border-radius: 7px;
+
+        padding: 13px 14px;
+
+        font-family: Arial, sans-serif;
+
+        font-size: 14px;
+
+        color: var(--text);
+
+        outline: none;
+
+        transition: 0.3s;
+    }
+
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+
+        border-color: var(--purple);
+
+        background: white;
+
+        box-shadow: 0 0 0 3px rgba(117,103,232,0.08);
+    }
+
+
+    .form-group textarea {
+        min-height: 130px;
+
+        resize: vertical;
+    }
+
+
+    .submit-btn {
+        width: 100%;
+
+        border: none;
+
+        background: var(--navy);
+
+        color: white;
+
+        padding: 15px;
+
+        border-radius: 7px;
+
+        font-size: 14px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+
+
+    .submit-btn:hover {
+        background: var(--purple);
+
+        transform: translateY(-2px);
+    }
+
+
+    /* ================= SCHOOL HOURS ================= */
+
+    .hours-section {
+        width: 90%;
+        max-width: 1150px;
+
+        margin: 0 auto 80px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+    }
+
+
+    .hours-box {
+        background: white;
+
+        padding: 35px;
+
+        border-radius: 14px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+
+    .hours-box h2 {
+        color: var(--navy);
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        margin-bottom: 20px;
+    }
+
+
+    .hours-row {
+        display: flex;
+
+        justify-content: space-between;
+
+        padding: 13px 0;
+
+        border-bottom: 1px solid var(--line);
+
+        font-size: 14px;
+    }
+
+
+    .hours-row:last-child {
+        border-bottom: none;
+    }
+
+
+    .hours-row span:first-child {
+        color: var(--text);
+
+        font-weight: bold;
+    }
+
+
+    .hours-row span:last-child {
+        color: var(--purple);
+    }
+
+
+    /* ================= MAP / LOCATION ================= */
+
+    .location-box {
+        background: linear-gradient(
+            135deg,
+            #293b70,
+            var(--navy)
+        );
+
+        padding: 35px;
+
+        border-radius: 14px;
+
+        color: white;
+
+        min-height: 100%;
+    }
+
+
+    .location-box h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 28px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .location-box p {
+        color: #d9dde6;
+
+        font-size: 14px;
+
+        line-height: 1.8;
+
+        margin-bottom: 25px;
+    }
+
+
+    .map-placeholder {
+        height: 140px;
+
+        border-radius: 10px;
+
+        border: 1px solid rgba(255,255,255,0.15);
+
+        background:
+            repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.04),
+                rgba(255,255,255,0.04) 10px,
+                transparent 10px,
+                transparent 20px
+            );
+
+        display: grid;
+
+        place-items: center;
+
+        color: var(--gold);
+
+        font-size: 13px;
+
+        letter-spacing: 1px;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .contact-cta {
+        width: 90%;
+        max-width: 1150px;
+
+        margin: 0 auto 80px;
+
+        padding: 60px 30px;
+
+        border-radius: 18px;
+
+        text-align: center;
+
+        background: var(--cream);
+    }
+
+
+    .contact-cta h2 {
+        color: var(--navy);
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 37px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .contact-cta p {
+        color: var(--muted);
+
+        margin-bottom: 25px;
+    }
+
+
+    .contact-cta a {
+        display: inline-block;
+
+        background: var(--gold);
+
+        color: var(--navy);
+
+        text-decoration: none;
+
+        padding: 14px 26px;
+
+        border-radius: 7px;
+
+        font-weight: bold;
+
+        transition: 0.3s;
+    }
+
+
+    .contact-cta a:hover {
+        transform: translateY(-3px);
+
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        background: var(--navy-dark);
+
+        color: white;
+
+        text-align: center;
+
+        padding: 35px 20px;
+
+        font-size: 13px;
+    }
+
+
+    footer strong {
+        color: var(--gold);
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+        .site-header {
+            flex-direction: column;
+
+            padding: 20px;
+        }
+
+
+        .site-nav {
+            justify-content: center;
+        }
+
+
+        .contact-cards {
+            grid-template-columns: 1fr;
+        }
+
+
+        .contact-section {
+            grid-template-columns: 1fr;
+        }
+
+
+        .hours-section {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .site-nav a {
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+
+
+        .contact-form,
+        .contact-info {
+            padding: 25px;
+        }
+
+
+        .hero-content {
+            text-align: center;
+        }
+
+
+        .hero-content p {
+            margin: auto;
+        }
+
+
+        .contact-cta h2 {
+            font-size: 30px;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="site-header">
+
+
+<div class="logo">
+
+    <svg width="45" height="45" viewBox="0 0 45 45">
+
+        <circle
+            cx="22.5"
+            cy="22.5"
+            r="21"
+            fill="#d6ad5b">
+        </circle>
+
+        <circle
+            cx="22.5"
+            cy="22.5"
+            r="16"
+            fill="#101d3b">
+        </circle>
+
+        <text
+            x="22.5"
+            y="29"
+            font-size="19"
+            text-anchor="middle"
+            fill="#ffffff"
+            font-family="Georgia">
+            A
+        </text>
+
+    </svg>
+
+
+    <span>
+        Aurelia International College
+    </span>
+
+</div>
+
+
+<nav class="site-nav">
+
+    <a href="school.html">
+        Home
+    </a>
+
+    <a href="about.html">
+        About
+    </a>
+
+    <a href="academics.html">
+        Academics
+    </a>
+
+    <a href="campus.html">
+        Campus
+    </a>
+
+    <a href="news.html">
+        News
+    </a>
+
+    <a href="contact.html" class="active">
+        Contact
+    </a>
+
+    <a href="Admissions.html">
+        Admissions
+    </a>
+
+</nav>
+
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="contact-hero">
+
+
+<div class="hero-content">
+
+    <div class="hero-label">
+        Get In Touch
+    </div>
+
+
+    <h1>
+        Let's Start A <span>Conversation.</span>
+    </h1>
+
+
+    <p>
+        Whether you are a prospective parent, current family,
+        student or member of our community, the Aurelia team
+        is always ready to assist you.
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- ================= CONTACT CARDS ================= -->
+
+<section class="contact-cards">
+
+
+<div class="contact-card">
+
+    <div class="contact-icon icon-purple">
+        @
+    </div>
+
+    <h3>
+        Email Us
+    </h3>
+
+    <p>
+        admissions@aureliacollege.edu
+    </p>
+
+</div>
+
+
+
+<div class="contact-card">
+
+    <div class="contact-icon icon-blue">
+        ☎
+    </div>
+
+    <h3>
+        Call Us
+    </h3>
+
+    <p>
+        +234 9050350450
+    </p>
+
+</div>
+
+
+
+<div class="contact-card">
+
+    <div class="contact-icon icon-green">
+        ⌖
+    </div>
+
+    <h3>
+        Visit Us
+    </h3>
+
+    <p>
+        Aurelia International College<br>
+        Abuja, Nigeria
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- ================= CONTACT FORM ================= -->
+
+<section class="contact-section">
+
+
+<div class="contact-info">
+
+    <div class="section-label">
+        Contact Information
+    </div>
+
+
+    <h2>
+        We're Here To Help.
+    </h2>
+
+
+    <p>
+        Have questions about admissions, academics, campus life
+        or anything else? Reach out to our team and we'll be
+        happy to guide you.
+    </p>
+
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            A
+        </div>
+
+        <div>
+
+            <h4>
+                Admissions Office
+            </h4>
+
+            <a href="mailto:admissions@aureliacollege.edu">
+                admissions@aureliacollege.edu
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            P
+        </div>
+
+        <div>
+
+            <h4>
+                Phone
+            </h4>
+
+            <p>
+                +234 9050350450
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="info-item">
+
+        <div class="info-icon">
+            L
+        </div>
+
+        <div>
+
+            <h4>
+                School Address
+            </h4>
+
+            <p>
+                Aurelia International College,<br>
+                Abuja, Nigeria.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- FORM -->
+
+<div class="contact-form">
+
+    <h2>
+        Send Us A Message
+    </h2>
+
+
+    <p class="form-intro">
+        Complete the form below and our team will get back
+        to you as soon as possible.
+    </p>
+
+
+    <form action="#" method="post">
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Your full name"
+                    required>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    required>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-row">
+
+            <div class="form-group">
+
+                <label for="phone">
+                    Phone Number
+                </label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+234">
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="subject">
+                    Enquiry Type
+                </label>
+
+                <select id="subject" name="subject">
+
+                    <option value="">
+                        Select an option
+                    </option>
+
+                    <option>
+                        Admissions
+                    </option>
+
+                    <option>
+                        Academics
+                    </option>
+
+                    <option>
+                        Campus Life
+                    </option>
+
+                    <option>
+                        General Enquiry
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label for="message">
+                Your Message
+            </label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="How can we help you?"
+                required></textarea>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="submit-btn">
+
+            Send Message →
+
+        </button>
+
+
+    </form>
+
+</div>
+
+
+</section>
+
+<!-- ================= HOURS + LOCATION ================= -->
+
+<section class="hours-section">
+
+
+<div class="hours-box">
+
+    <h2>
+        Office Hours
+    </h2>
+
+
+    <div class="hours-row">
+
+        <span>
+            Monday – Friday
+        </span>
+
+        <span>
+            8:00 AM – 4:00 PM
+        </span>
+
+    </div>
+
+
+    <div class="hours-row">
+
+        <span>
+            Saturday
+        </span>
+
+        <span>
+            9:00 AM – 1:00 PM
+        </span>
+
+    </div>
+
+
+    <div class="hours-row">
+
+        <span>
+            Sunday
+        </span>
+
+        <span>
+            Closed
+        </span>
+
+    </div>
+
+
+    <div class="hours-row">
+
+        <span>
+            Admissions
+        </span>
+
+        <span>
+            Mon – Sat
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<div class="location-box">
+
+    <h2>
+        Visit Aurelia
+    </h2>
+
+
+    <p>
+        Come and experience our learning environment,
+        meet our admissions team and discover what makes
+        Aurelia International College different.
+    </p>
+
+
+    <div class="map-placeholder">
+
+        AURELIA INTERNATIONAL COLLEGE • ABUJA
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="contact-cta">
+
+
+<h2>
+    Ready To Begin Your Journey?
+</h2>
+
+
+<p>
+    Explore our admissions process and take the first
+    step toward becoming part of the Aurelia community.
+</p>
+
+
+<a href="Admissions.html">
+    Explore Admissions →
+
+</a>
+
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+
+<p>
+    © 2026
+    <strong>Aurelia International College</strong>.
+    All Rights Reserved.
+</p>
+
+
+</footer>
+
+</body>
+
+</html>

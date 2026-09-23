@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | Aurelia International College</title>
+
+<link rel="stylesheet" href="school.css">
+
+
+<style>
+
+    :root {
+        --navy: #101d3b;
+        --navy-dark: #081126;
+        --gold: #d6ad5b;
+        --purple: #7567e8;
+        --blue: #3d82f6;
+        --green: #27ae75;
+        --cream: #f7f5ef;
+        --white: #ffffff;
+        --text: #303642;
+        --muted: #707784;
+        --line: #e6e6e6;
+    }
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f6f7fb;
+        color: var(--text);
+    }
+
+
+    /* ================= NAVIGATION ================= */
+
+    .site-header {
+        background: var(--navy);
+
+        min-height: 78px;
+
+        padding: 14px 6%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 30px;
+
+        box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+
+        position: relative;
+
+        z-index: 10;
+    }
+
+
+    .logo {
+        display: flex;
+
+        align-items: center;
+
+        gap: 12px;
+
+        color: white;
+
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-weight: bold;
+
+        font-size: 18px;
+
+        white-space: nowrap;
+    }
+
+
+    .logo svg {
+        flex-shrink: 0;
+    }
+
+
+    .site-nav {
+        display: flex;
+
+        align-items: center;
+
+        gap: 6px;
+
+        flex-wrap: wrap;
+    }
+
+
+    .site-nav a {
+        color: white;
+
+        text-decoration: none;
+
+        padding: 10px 14px;
+
+        border-radius: 7px;
+
+        font-size: 14px;
+
+        transition: 0.3s ease;
+    }
+
+
+    .site-nav a:hover {
+        background: rgba(255,255,255,0.12);
+
+        color: var(--gold);
+    }
+
+
+    .site-nav .active {
+        background: var(--gold);
+
+        color: var(--navy);
+
+        font-weight: bold;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .about-hero {
+        min-height: 480px;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        overflow: hidden;
+
+
+        background:
+
+        linear-gradient(
+            120deg,
+            rgba(8,17,38,0.96),
+            rgba(16,29,59,0.86),
+            rgba(76,65,150,0.70)
+        );
+    }
+
+
+    .hero-container {
+        width: 90%;
+
+        max-width: 1150px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        align-items: center;
+
+        gap: 60px;
+
+        padding: 70px 0;
+    }
+
+
+    .hero-label {
+        color: var(--gold);
+
+        text-transform: uppercase;
+
+        letter-spacing: 3px;
+
+        font-size: 12px;
+
+        font-weight: bold;
+
+        margin-bottom: 15px;
+    }
+
+
+    .hero-text h1 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        color: white;
+
+        font-size: clamp(45px, 6vw, 70px);
+
+        line-height: 1.05;
+
+        margin-bottom: 20px;
+    }
+
+
+    .hero-text h1 span {
+        color: var(--gold);
+    }
+
+
+    .hero-text p {
+        color: #e3e6ee;
+
+        font-size: 16px;
+
+        line-height: 1.8;
+
+        max-width: 600px;
+
+        margin-bottom: 28px;
+    }
+
+
+    .hero-btn {
+        display: inline-block;
+
+        background: var(--gold);
+
+        color: var(--navy);
+
+        text-decoration: none;
+
+        padding: 14px 24px;
+
+        border-radius: 7px;
+
+        font-weight: bold;
+
+        transition: 0.3s;
+    }
+
+
+    .hero-btn:hover {
+        transform: translateY(-4px);
+
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+
+    /* ================= HERO IMAGE ================= */
+
+    .hero-image {
+        height: 350px;
+
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        border: 5px solid rgba(214,173,91,0.35);
+
+        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+
+    .hero-image img {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+    }
+
+
+    /* ================= INTRO ================= */
+
+    .intro {
+        width: 90%;
+
+        max-width: 1000px;
+
+        margin: 80px auto;
+
+        text-align: center;
+    }
+
+
+    .section-label {
+        color: var(--purple);
+
+        text-transform: uppercase;
+
+        letter-spacing: 3px;
+
+        font-size: 12px;
+
+        font-weight: bold;
+    }
+
+
+    .intro h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        color: var(--navy);
+
+        font-size: 40px;
+
+        margin: 10px 0 20px;
+    }
+
+
+    .intro p {
+        color: #686e79;
+
+        line-height: 1.9;
+
+        font-size: 16px;
+    }
+
+
+    /* ================= MISSION VISION ================= */
+
+    .mission-section {
+        width: 90%;
+
+        max-width: 1150px;
+
+        margin: 0 auto 80px;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 22px;
+    }
+
+
+    .mission-card {
+        padding: 40px;
+
+        border-radius: 15px;
+
+        background: white;
+
+        box-shadow: 0 10px 35px rgba(16,29,59,0.07);
+
+        border-top: 5px solid var(--purple);
+    }
+
+
+    .mission-card:nth-child(2) {
+        border-top-color: var(--gold);
+    }
+
+
+    .card-number {
+        font-size: 42px;
+
+        font-family: Georgia, serif;
+
+        color: #e4e4eb;
+
+        font-weight: bold;
+
+        margin-bottom: 8px;
+    }
+
+
+    .mission-card h3 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 27px;
+
+        color: var(--navy);
+
+        margin-bottom: 13px;
+    }
+
+
+    .mission-card p {
+        color: #707784;
+
+        line-height: 1.8;
+
+        font-size: 14px;
+    }
+
+
+    /* ================= VALUES ================= */
+
+    .values {
+        background: var(--navy);
+
+        padding: 80px 6%;
+
+        color: white;
+
+        text-align: center;
+    }
+
+
+    .values .section-label {
+        color: var(--gold);
+    }
+
+
+    .values h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 40px;
+
+        margin: 10px 0 45px;
+    }
+
+
+    .values-grid {
+        max-width: 1150px;
+
+        margin: auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 18px;
+    }
+
+
+    .value-card {
+        padding: 30px 20px;
+
+        border-radius: 13px;
+
+        background: rgba(255,255,255,0.07);
+
+        border: 1px solid rgba(255,255,255,0.1);
+
+        transition: 0.3s;
+    }
+
+
+    .value-card:hover {
+        transform: translateY(-7px);
+
+        background: rgba(255,255,255,0.11);
+    }
+
+
+    .value-icon {
+        width: 50px;
+
+        height: 50px;
+
+        margin: 0 auto 15px;
+
+        border-radius: 50%;
+
+        display: grid;
+
+        place-items: center;
+
+        color: white;
+
+        font-weight: bold;
+    }
+
+
+    .value-card:nth-child(1) .value-icon {
+        background: var(--purple);
+    }
+
+
+    .value-card:nth-child(2) .value-icon {
+        background: var(--blue);
+    }
+
+
+    .value-card:nth-child(3) .value-icon {
+        background: var(--green);
+    }
+
+
+    .value-card:nth-child(4) .value-icon {
+        background: var(--gold);
+    }
+
+
+    .value-card h3 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        color: white;
+
+        margin-bottom: 10px;
+    }
+
+
+    .value-card p {
+        color: #d7dbe4;
+
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+
+
+    /* ================= STATS ================= */
+
+    .stats {
+        width: 90%;
+
+        max-width: 1050px;
+
+        margin: 80px auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 15px;
+
+        text-align: center;
+    }
+
+
+    .stat {
+        background: white;
+
+        padding: 30px 15px;
+
+        border-radius: 12px;
+
+        box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    }
+
+
+    .stat h3 {
+        color: var(--purple);
+
+        font-family: Georgia, serif;
+
+        font-size: 35px;
+
+        margin-bottom: 5px;
+    }
+
+
+    .stat p {
+        color: #777;
+
+        font-size: 13px;
+    }
+
+
+    /* ================= CTA ================= */
+
+    .about-cta {
+        width: 90%;
+
+        max-width: 1150px;
+
+        margin: 0 auto 80px;
+
+        padding: 65px 30px;
+
+        text-align: center;
+
+        border-radius: 18px;
+
+        background:
+        linear-gradient(
+            135deg,
+            #293b70,
+            var(--navy)
+        );
+
+        color: white;
+    }
+
+
+    .about-cta h2 {
+        font-family: Georgia, "Times New Roman", serif;
+
+        font-size: 38px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .about-cta p {
+        color: #dce0e9;
+
+        margin-bottom: 28px;
+    }
+
+
+    .about-cta a {
+        display: inline-block;
+
+        background: var(--gold);
+
+        color: var(--navy);
+
+        padding: 15px 28px;
+
+        text-decoration: none;
+
+        border-radius: 7px;
+
+        font-weight: bold;
+
+        transition: 0.3s;
+    }
+
+
+    .about-cta a:hover {
+        transform: translateY(-4px);
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    footer {
+        background: var(--navy-dark);
+
+        color: white;
+
+        text-align: center;
+
+        padding: 35px 20px;
+
+        font-size: 13px;
+    }
+
+
+    footer strong {
+        color: var(--gold);
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 900px) {
+
+        .site-header {
+            flex-direction: column;
+
+            padding: 20px;
+        }
+
+
+        .site-nav {
+            justify-content: center;
+        }
+
+
+        .hero-container {
+            grid-template-columns: 1fr;
+
+            text-align: center;
+        }
+
+
+        .hero-text p {
+            margin-left: auto;
+
+            margin-right: auto;
+        }
+
+
+        .values-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+        .stats {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .mission-section {
+            grid-template-columns: 1fr;
+        }
+
+
+        .values-grid {
+            grid-template-columns: 1fr;
+        }
+
+
+        .stats {
+            grid-template-columns: 1fr;
+        }
+
+
+        .hero-image {
+            height: 280px;
+        }
+
+
+        .intro h2,
+        .values h2 {
+            font-size: 32px;
+        }
+
+
+        .site-nav a {
+            padding: 8px;
+
+            font-size: 12px;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<header class="site-header">
+
+```
+<div class="logo">
+
+    <svg width="45" height="45" viewBox="0 0 45 45">
+
+        <circle
+            cx="22.5"
+            cy="22.5"
+            r="21"
+            fill="#d6ad5b">
+        </circle>
+
+        <circle
+            cx="22.5"
+            cy="22.5"
+            r="16"
+            fill="#101d3b">
+        </circle>
+
+        <text
+            x="22.5"
+            y="29"
+            font-size="19"
+            text-anchor="middle"
+            fill="#ffffff"
+            font-family="Georgia">
+            A
+        </text>
+
+    </svg>
+
+
+    <span class="logo-text">
+        Aurelia International College
+    </span>
+
+</div>
+
+
+
+<nav class="site-nav">
+
+    <a href="school.html">
+        Home
+    </a>
+
+    <a href="about.html" class="active">
+        About
+    </a>
+
+    <a href="academics.html">
+        Academics
+    </a>
+
+    <a href="campus.html">
+        Campus
+    </a>
+
+    <a href="news.html">
+        News
+    </a>
+
+    <a href="contact.html">
+        Contact
+    </a>
+
+    <a href="Admissions.html">
+        Admissions
+    </a>
+
+</nav>
+
+
+</header>
+
+<!-- ================= HERO ================= -->
+
+<section class="about-hero">
+
+```
+<div class="hero-container">
+
+
+    <div class="hero-text">
+
+        <div class="hero-label">
+            About Aurelia
+        </div>
+
+
+        <h1>
+            Where <span>Potential</span>
+            Becomes Excellence.
+        </h1>
+
+
+        <p>
+            Aurelia International College is a distinguished
+            secondary school dedicated to nurturing brilliant
+            minds, strong character and purposeful leadership.
+        </p>
+
+
+        <a href="#story" class="hero-btn">
+            Discover the Aurelia Experience →
+        </a>
+
+    </div>
+
+
+
+    <div class="hero-image">
+
+        <img
+            src="scc.jpeg"
+            alt="Aurelia International College">
+
+    </div>
+
+
+</div>
+```
+
+</section>
+
+<!-- ================= STORY ================= -->
+
+<section class="intro" id="story">
+
+```
+<div class="section-label">
+    Our Story
+</div>
+
+
+<h2>
+    Education With Purpose.
+</h2>
+
+
+<p>
+    At Aurelia International College, education goes beyond
+    the classroom. We create an environment where students
+    are encouraged to question, discover, create and grow
+    into confident individuals prepared for a changing world.
+</p>
+```
+
+</section>
+
+<!-- ================= MISSION & VISION ================= -->
+
+<section class="mission-section">
+
+```
+<div class="mission-card">
+
+    <div class="card-number">
+        01
+    </div>
+
+
+    <h3>
+        Our Mission
+    </h3>
+
+
+    <p>
+        To provide an exceptional learning experience that
+        develops intellectual curiosity, personal character
+        and the confidence to make a meaningful difference
+        in the world.
+    </p>
+
+</div>
+
+
+
+<div class="mission-card">
+
+    <div class="card-number">
+        02
+    </div>
+
+
+    <h3>
+        Our Vision
+    </h3>
+
+
+    <p>
+        To be a leading institution where young people are
+        empowered to become innovative thinkers, responsible
+        leaders and lifelong learners who shape the future.
+    </p>
+
+</div>
+
+
+</section>
+
+<!-- ================= VALUES ================= -->
+
+<section class="values">
+
+
+<div class="section-label">
+    What We Stand For
+</div>
+
+
+<h2>
+    The Aurelia Values
+</h2>
+
+
+
+<div class="values-grid">
+
+
+    <div class="value-card">
+
+        <div class="value-icon">
+            E
+        </div>
+
+        <h3>
+            Excellence
+        </h3>
+
+        <p>
+            We encourage every student to pursue
+            their highest potential.
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-icon">
+            I
+        </div>
+
+        <h3>
+            Integrity
+        </h3>
+
+        <p>
+            We build a culture founded on honesty,
+            respect and responsibility.
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-icon">
+            C
+        </div>
+
+        <h3>
+            Curiosity
+        </h3>
+
+        <p>
+            We inspire students to ask questions,
+            explore ideas and discover possibilities.
+        </p>
+
+    </div>
+
+
+
+    <div class="value-card">
+
+        <div class="value-icon">
+            L
+        </div>
+
+        <h3>
+            Leadership
+        </h3>
+
+        <p>
+            We prepare students to lead with
+            confidence, purpose and compassion.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="stats">
+
+```
+<div class="stat">
+
+    <h3>
+        15+
+    </h3>
+
+    <p>
+        Years of Excellence
+    </p>
+
+</div>
+
+
+
+<div class="stat">
+
+    <h3>
+        98%
+    </h3>
+
+    <p>
+        University Placement
+    </p>
+
+</div>
+
+
+
+<div class="stat">
+
+    <h3>
+        30+
+    </h3>
+
+    <p>
+        Clubs & Activities
+    </p>
+
+</div>
+
+
+
+<div class="stat">
+
+    <h3>
+        1:12
+    </h3>
+
+    <p>
+        Teacher–Student Ratio
+    </p>
+
+</div>
+```
+
+</section>
+
+<!-- ================= CTA ================= -->
+
+<section class="about-cta">
+
+
+<h2>
+    Discover What Aurelia Can Become.
+</h2>
+
+
+<p>
+    Give your child an environment where ambition,
+    curiosity and character can flourish.
+</p>
+
+
+<a href="Admissions.html">
+    Explore Admissions →
+</a>
+
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+    © 2026
+    <strong>Aurelia International College</strong>.
+    All Rights Reserved.
+</p>
+
+
+</footer>
+
+</body>
+
+</html>
